@@ -1,0 +1,93 @@
+songs = [
+        {
+                "artists": ["Taylor Swift", "HAIM"],
+                "title": "no body, no crime",
+                "genres": ["Country rock", "Pop rock"],
+                "year": 2021,
+        },
+        {
+                "artists": ["Frank Ocean"],
+                "title": "Pink + White",
+                "genres": ["R&B", "Avant-pop", "Smooth jazz", "Trip hop"],
+                "year": 2016,
+        },
+        {
+                "artists": ["Giveon"],
+                "title": "Heartbreak Anniversary",
+                "genres": ["R&B", "Electro", "Soul"],
+                "year": 2020,
+        },
+        {
+                "artists": ["Lauv", "BTS"],
+                "title": "Who",
+                "genres": ["Pop"],
+                "year": 2020,
+        },
+        {
+                "artists": ["Rihanna"],
+                "title": "Where Have You Been",
+                "genres": ["EDM", "Dance-pop", "R&B", "Pop"],
+                "year": 2011,
+        },
+        {
+                "artists": ["Silk Sonic"],
+                "title": "Leave the Door Open",
+                "genres": ["R&B", "Pop"],
+                "year": 2021,
+        },
+        {
+                "artists": ["Taylor Swift"],
+                "title": "Blank Space",
+                "genres": ["Pop"],
+                "year": 2014,
+        },
+        {
+                "artists": ["Snoop Dogg", "Pharrell Williams"],
+                "title": "Drop It Like It's Hot",
+                "genres": ["Hip hop"],
+                "year": 2004,
+        },
+        {
+                "artists": ["Maroon 5", "Wiz Khalifa"],
+                "title": "Payphone",
+                "genres": ["Pop", "Rock"],
+                "year": 2012,
+        },
+        {
+                "artists": ["Doja Cat"],
+                "title": "Woman",
+                "genres": ["Pop", "Reggae", "Hip hop"],
+                "year": 2021,
+        },
+        {
+                "artists": ["Shakira", "Wyclef Jean"],
+                "title": "Hips Don't Lie",
+                "genres": ["Latin pop"],
+                "year": 2006,
+        },
+        {
+                "artists": ["Hozier"],
+                "title": "Take Me to Church",
+                "genres": ["Alternative rock", "Soul"],
+                "year": 2013,
+        },
+        {
+                "artists": ["The Weeknd"],
+                "title": "Die For You",
+                "genres": ["R&B"],
+                "year": 2016,
+        },
+        {
+                "artists": ["Sam Smith"],
+                "title": "Stay with Me",
+                "genres": ["Soul"],
+                "year": 2014,
+        },
+        {
+                "artists": ["The Chainsmokers", "Coldplay"],
+                "title": "Something Just Like This",
+                "genres": ["EDM", "Pop"],
+                "year": 2017,
+        }
+
+]
