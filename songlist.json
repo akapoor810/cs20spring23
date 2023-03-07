@@ -1,4 +1,4 @@
-songs = [
+[
         {
                 "artists": ["Taylor Swift", "HAIM"],
                 "title": "no body, no crime",
