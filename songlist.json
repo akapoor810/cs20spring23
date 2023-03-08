@@ -30,6 +30,24 @@
                 "year": 2011
         },
         {
+                "artists": ["Hozier"],
+                "title": "Take Me to Church",
+                "genres": ["Alternative rock", "Soul"],
+                "year": 2013
+        },
+        {
+                "artists": ["The Weeknd"],
+                "title": "Die For You",
+                "genres": ["R&B"],
+                "year": 2016
+        },
+        {
+                "artists": ["Doja Cat"],
+                "title": "Woman",
+                "genres": ["Pop", "Reggae", "Hip hop"],
+                "year": 2021
+        },
+        {
                 "artists": ["Silk Sonic"],
                 "title": "Leave the Door Open",
                 "genres": ["R&B", "Pop"],
@@ -54,28 +72,10 @@
                 "year": 2012
         },
         {
-                "artists": ["Doja Cat"],
-                "title": "Woman",
-                "genres": ["Pop", "Reggae", "Hip hop"],
-                "year": 2021
-        },
-        {
                 "artists": ["Shakira", "Wyclef Jean"],
                 "title": "Hips Don't Lie",
                 "genres": ["Latin pop"],
                 "year": 2006
-        },
-        {
-                "artists": ["Hozier"],
-                "title": "Take Me to Church",
-                "genres": ["Alternative rock", "Soul"],
-                "year": 2013
-        },
-        {
-                "artists": ["The Weeknd"],
-                "title": "Die For You",
-                "genres": ["R&B"],
-                "year": 2016
         },
         {
                 "artists": ["Sam Smith"],
