@@ -24,18 +24,6 @@
                 "year": 2020
         },
         {
-                "artists": ["Rihanna"],
-                "title": "Where Have You Been",
-                "genres": ["EDM", "Dance-pop", "R&B", "Pop"],
-                "year": 2011
-        },
-        {
-                "artists": ["Hozier"],
-                "title": "Take Me to Church",
-                "genres": ["Alternative rock", "Soul"],
-                "year": 2013
-        },
-        {
                 "artists": ["The Weeknd"],
                 "title": "Die For You",
                 "genres": ["R&B"],
@@ -88,6 +76,18 @@
                 "title": "Something Just Like This",
                 "genres": ["EDM", "Pop"],
                 "year": 2017
+        },
+        {
+                "artists": ["Rihanna"],
+                "title": "Where Have You Been",
+                "genres": ["EDM", "Dance-pop", "R&B", "Pop"],
+                "year": 2011
+        },
+        {
+                "artists": ["Hozier"],
+                "title": "Take Me to Church",
+                "genres": ["Alternative rock", "Soul"],
+                "year": 2013
         }
 
 ]
