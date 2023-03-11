@@ -1,3 +1,3 @@
-#Business Website
+# Business Website
 
 HTML and CSS code for CS20 midterm project, website for Tufts Animal Aid
