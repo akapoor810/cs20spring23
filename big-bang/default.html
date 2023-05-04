@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <script
+                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous">
+        </script>  
+        <link rel="stylesheet" href="big_bang.css">
+</head>
+
+<body>
+        <br/>
+        <header>
+                <!-- <img class="banner-image" src="banner-image.jpg" 
+                alt="Unsplash.com" height="625"> -->
+                <h1>IMPORTANT FEMALE SCIENTISTS</h1>
+                <h3 style="margin-top: -0.5%">A BBtHk Project</h3>
+                <hr style="margin: 1.5% auto -0.5% auto">
+        </header>
+
+        <nav>
+                <a class="active" href="default.html">HOME</a>
+                <a href="takeaways.html">TAKEAWAYS</a>
+                <a href="write-up.html">WRITE-UP</a>           
+        </nav>
+
+        <br/>
+        
+        <div style="display: flex; margin-left: 12.5%;">
+                <input type="checkbox" id="show_or_hide" value="show all">
+                <label for="show_or_hide" style="font-size: 18px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                        &nbsp; Show all
+                </label><br>
+        </div>
+        
+        <br/>
+
+        <button type="button" class="collapsible" id="1">Category</button>
+        <div class="gallery" id="gallery1">
+                <table style="margin: auto">
+                        <tr>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="andrea-ghez.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Andrea Ghez</p>
+                                </td>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="annie-jump-cannon.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Annie Jump Cannon</p>
+                                </td>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="cecilia-payne.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Cecilia Payne-Gaposchkin</p>
+                                </td>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="eunice-newton-foote.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Eunice Newton Foote</p>
+                                </td>
+                        </tr>
+                        
+                        <tr>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="henrietta-swan-leavitt.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Henrietta Swan Leavitt</p>
+                                </td>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="jocelyn-bell-burnell.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Jocelyn Bell-Burnell</p>
+                                </td>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="marie-curie.jpeg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Marie Curie</p>
+                                </td>
+                        </tr>
+                        
+                        <tr>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="marie-tharp.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Marie Tharp</p>
+                                </td>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="rosalind-franklin.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Rosalind Franklin</p>
+                                </td>
+                                <td class="gallery__item">
+                                        <img id="dog_pic" src="vera-rubin.jpg" 
+                                        width="180" height="220">
+                                        <p style="text-align: center">Vera Rubin</p>
+                                </td>
+                        </tr>
+                </table>
+        </div>
+        
+        <div class="spacer"></div>
+        <script>
+                var num_categories = 5;
+                $(document).ready(function() {
+                        $(".gallery").hide();
+                        
+                        $(".collapsible").click(function() {
+                                console.log("clicked");
+                                console.log(this.id);
+
+                                if ($("#gallery" + this.id).is(":hidden")) {
+                                        $("#gallery" + this.id).show();
+                                } else {
+                                        $("#gallery" + this.id).hide();
+                                }
+                        });
+                        
+                        $("#show_or_hide").click(function() {
+                                console.log("clicked");
+                                console.log(this.id);
+
+                                if ($(".gallery").is(":hidden")) {
+                                        $(".gallery").show();
+                                } else {
+                                        $(".gallery").hide();
+                                }
+                        });
+                });
+        </script>
+
+</body>
+</html>
