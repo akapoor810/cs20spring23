@@ -1,0 +1,173 @@
+body {
+        background-color: white;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+}
+
+header {
+        color: #1b1719;
+        margin: 2% auto auto auto;
+}
+
+h1 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        letter-spacing: 1px;
+        font-weight: 600;
+        color: #091d26;
+}
+
+h3 {
+        font-family:'Courier New', Courier, monospace;
+        color: #102937;
+}
+
+p {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #124d54;
+}
+
+nav {
+        overflow:hidden;
+        text-align: center;
+        padding: 2% 34% 2%;
+        display: flex;
+        justify-content: space-between;
+}
+
+nav a {
+        color: #094044;;
+        display: inline-block;
+        font-size: 17px;
+        text-align: center;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 1.5% 4%;
+}
+
+nav a:hover {
+        border: 1.5px solid #094044;
+}
+
+
+nav a.active {
+        background-color: #ede6df;
+        border: 1.5px solid #094044;
+        font-weight: bold;
+}
+
+.collapsible {
+        background-color: #ede6df;
+        color: #124d54;
+        font-size: 18px;
+        width: 75%;
+        cursor: pointer;
+        padding: 18px;
+        border: none;
+        text-align: left;
+        outline: none;
+}
+
+.active, .collapsible:hover {
+        background-color: rgb(235, 234, 234);
+        color: #094044;
+        font-weight:bold;
+}
+
+.gallery {
+        width: 75%;
+        margin: 0% 12.5%;
+        display: none;
+        overflow: hidden;
+        background-color: #fafafa;
+}
+
+.spacer {
+        display: flex;
+        padding: 2.5% 0 2.5% 0px;
+}
+
+.gallery {
+        display: grid;
+        width: auto;
+}
+
+.gallery__item {
+        cursor: pointer;
+        overflow: hidden;
+}
+
+.gallery__item img {
+        object-fit: cover;
+        transition: 0.3s ease-in-out;
+        border-radius: 8px;
+}
+
+.gallery__item img:hover {
+        transform: scale(1.1);
+        }
+
+@media (max-width: 950px) {
+        .gallery {
+                grid-template-columns: repeat(2, 1fr);
+        }
+}
+
+@media (max-width: 550px) {
+        .gallery {
+                grid-template-columns: repeat(1, 1fr);
+        }
+}
+
+@keyframes zoom {
+        from {
+                transform: scale(0);
+        }
+        to {
+                transform: scale(1);
+        }
+}
+
+.modal {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.85);
+        animation: zoom 0.3s ease-in-out;
+        flex-direction: column;
+        overflow-y: auto;
+}
+
+.modal-image {
+        height: 65%;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px;
+        margin-top: 8%; /* Add margin bottom to create space between image and actorInfo */
+}
+
+.modal-actorInfo {
+        text-align: center;
+        display: block; /* Display actorInfo element as a block element */
+        max-height: 25%;
+        margin-bottom: 5%;
+}
+
+.closeBtn {
+        background-color: transparent;
+        font-size: 40px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+}
+
+.closeBtn:hover {
+        color: rgb(255, 255, 255);
+}
