@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+        <link rel="stylesheet" href="final.css">
+        
+        
+        <style>
+        h1 {
+                color: white;
+                font-size: 55px;
+                text-align: center;
+                font-family:Georgia, 'Times New Roman', Times, serif; 
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+        } 
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .movie-container, .tv-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0% 5% 0% 5%;
+        }
+
+        .movie-item {
+            width: 20%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .movie-poster {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+            overflow: hidden;
+        }
+
+        .movie-poster img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .movie-details {
+                padding: 10px;
+                text-align: center;
+                color: #000;
+        }
+
+        .movie-title {
+            margin: 0;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .movie-rating {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+        #datamovies h3, #datatv h3 {
+                margin-bottom: 1%;
+        }
+
+        .top-10 {
+                color: black;
+                font-size: 25px; 
+                text-align: auto;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                text-align: center;
+        }
+
+        .movie-poster::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                transition: opacity 0.3s;
+                pointer-events: none;
+                border-radius: 8px;
+        }
+
+        .movie-poster:hover::before {
+                opacity: 1;
+        }
+
+        .overlay {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 10px;
+                background-color: transparent;
+                border-radius: 8px;
+                display: none;
+        }
+
+        .overlay button {
+                width: 100px;
+                height: 30px;
+                color: rgb(0, 0, 0);
+                background-color: rgba(206, 206, 206, 0.799);
+                border-width: 0;
+                font-weight: bold;
+                font-size: 14px;
+                padding: 4% 3% 4% 3%;
+                border-radius: 8px;
+        }
+
+
+        .overlay a {
+                color: rgb(0, 0, 0);
+                /* z-index: 1; */
+        }
+
+        .movie-poster:hover .overlay{
+                display:block;
+                border-radius: 8px;
+
+        }
+
+        .movie-poster:hover {
+                position: relative;
+        }
+
+        .popup {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                padding: 1%;
+                color: #333;
+                background-color: white;
+                visibility: hidden;
+                transition: transform 0.4s, top 0.4s;
+                align-items: center;
+                animation: zoom 0.8s ease-in-out;
+        }
+
+
+        .open-popup {
+                visibility: visible;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1);
+                width: 60%;
+                background-color: #e3edfd;
+                border-radius: 15px;
+                border: 5px solid #5d83c3;
+                transition: transform 0.4s, top 0.4s;
+        }
+
+
+        .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                visibility: hidden;
+        }
+
+        .close:hover, .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+        }
+
+        .noBuyButton {
+                margin-left: 4%;
+                margin-bottom: 3%;
+                margin-top: 3%;
+        }
+
+        /* .buyButton {
+        margin-left: 10%;
+        } */
+
+        .buyForm {
+                margin-top: 30px;
+                text-align: center;                
+        }
+
+        input[type=text] {
+                display: inline-block;
+                width: 60%;
+                padding: 1%;
+        }
+
+        label {
+                display: inline-block;
+                align-items:left;
+                width: 20%;
+                font-size: 18px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <nav>
+                <a href="default.html" class="logo"> <img src="images/logo.png" alt="Logo" height="80px"></a>
+                <a class="active" href="default.html">Home</a>
+                <a href="movies.html">Movies</a>
+                <a href="tv_shows.html">TV Shows</a>
+                <a href="actors.php">Actors</a>
+                <a href="about.html">About Us</a>
+                <a href="contribute.html">Contribute</a>                
+        </nav>
+
+        <header>
+                <img class="banner-image" src="images/banner-image.jpeg" 
+                alt="Unsplash.com" height="400">
+                <h1>Screen Shuffle</h1>
+                
+        </header>
+
+        <div class="spacer"></div>
+
+        <h2>Find a movie or show to watch, fast!</h2>
+        <br/>
+
+        <div style="text-align: center; margin: auto; width: auto">
+                <button style="margin: auto 4% auto 4%; overflow:hidden">
+                        <a href="movies.html">FIND MOVIES &nbsp;🎬</a>
+                </button>
+                <button>
+                        <a href="tv_shows.html">FIND TV SHOWS &nbsp;📺</a>
+                </button>
+        </div>
+
+        <hr style="width: 80%; margin: 3% auto 5% auto;">
+
+        <div id="datamovies">
+                <h3 class="top-10">Top 10 Movies</h3>
+                <div class="movie-container"></div>
+        </div>
+
+        <hr style="width: 80%; margin: 3% auto 5% auto;">
+
+        <div id="datatv">
+                <h3 class="top-10">Top 10 TV Shows</h3>
+                <div class="tv-container"></div>
+        </div>
+
+        <br>
+        <script>
+
+        function closePopup() {
+
+                        if (validate() === true) {
+                            let popup = document.getElementById("popup");
+                       
+                            popup.parentNode.removeChild(popup);
+                        
+                            popup.classList.remove("open-popup");
+
+                            alert("Your order has been placed. Thanks for renting!");
+
+                        }
+                        
+                }
+
+
+        function closeCancel() {
+                let popup = document.getElementById("popup");
+                console.log(popup);
+
+                popup.parentNode.removeChild(popup);
+                
+                popup.classList.remove("open-popup");
+        }
+
+        function openPopup(title, release_date) {
+                console.log(title);
+                console.log(release_date);
+
+                const container1 = document.createElement("div");
+                container1.setAttribute("class", "container1");
+
+                const popup = document.createElement("div");
+                popup.setAttribute("class", "popup");
+                popup.setAttribute("id", "popup");
+                popup.classList.add("open-popup");
+                
+
+                const movieTitle = document.createElement("h2");
+                // movieTitle.append("Rent: " + title);
+                movieTitle.innerHTML = "Rent &nbsp;<i>" + title + "</i>";
+
+                const text = document.createElement("p");
+                text.append("Price: $9.99");
+                
+
+                const buyForm = document.createElement("form");
+                buyForm.setAttribute("class", "buyForm");
+
+                /* for name */
+                const nameLabel = document.createElement("label");
+                nameLabel.setAttribute("for", "nameInput");
+                nameLabel.textContent = "Name: ";
+                const nameInput = document.createElement("input");
+                nameInput.setAttribute("type", "text");
+                nameInput.setAttribute("id", "nameInput");
+                buyForm.appendChild(nameLabel);
+                buyForm.appendChild(nameInput);
+                buyForm.appendChild(document.createElement("br"));
+                
+                /* for email */
+                const emailLabel = document.createElement("label");
+                emailLabel.setAttribute("for", "emailInput");
+                emailLabel.textContent = "Email: ";
+                const emailInput = document.createElement("input");
+                emailInput.setAttribute("type", "text");
+                emailInput.setAttribute("id", "emailInput");
+                buyForm.appendChild(emailLabel);
+                buyForm.appendChild(emailInput);
+                buyForm.appendChild(document.createElement("br"));
+
+                /* for credit card number */
+                const ccNumberLabel = document.createElement("label");
+                ccNumberLabel.setAttribute("for", "ccNumberInput");
+                ccNumberLabel.textContent = "Credit Card Number: ";
+                const ccNumberInput = document.createElement("input");
+                ccNumberInput.setAttribute("type", "text");
+                ccNumberInput.setAttribute("id", "ccNumberInput");
+                buyForm.appendChild(ccNumberLabel);
+                buyForm.appendChild(ccNumberInput);
+                buyForm.appendChild(document.createElement("br"));
+                
+                /* for expiration date */
+                const expirationLabel = document.createElement("label");
+                expirationLabel.setAttribute("for", "expirationInput");
+                expirationLabel.textContent = "Expiration Date: ";
+                const expirationInput = document.createElement("input");
+                expirationInput.setAttribute("type", "text");
+                expirationInput.setAttribute("id", "expirationInput");
+                buyForm.appendChild(expirationLabel);
+                buyForm.appendChild(expirationInput);
+                buyForm.appendChild(document.createElement("br"));
+
+                /* for security code */
+                const securityLabel = document.createElement("label");
+                securityLabel.setAttribute("for", "securityInput");
+                securityLabel.textContent = "Security Code: ";
+                const securityInput = document.createElement("input");
+                securityInput.setAttribute("type", "text");
+                securityInput.setAttribute("id", "securityInput");
+                buyForm.appendChild(securityLabel);
+                buyForm.appendChild(securityInput);
+                buyForm.appendChild(document.createElement("br"));
+                                        
+                /* for billing address */
+                const billLabel = document.createElement("label");
+                billLabel.setAttribute("for", "emailInput");
+                billLabel.textContent = "Billing Address: ";
+                const billInput = document.createElement("input");
+                billInput.setAttribute("type", "text");
+                billInput.setAttribute("id", "billInput");
+                buyForm.appendChild(billLabel);
+                buyForm.appendChild(billInput);
+                buyForm.appendChild(document.createElement("br"));
+
+                const submitButton = document.createElement("button");
+                submitButton.setAttribute("type", "button");
+                submitButton.setAttribute("class", "buyButton");
+                submitButton.setAttribute("onclick", "closePopup()");
+                submitButton.append("Rent Now!");
+
+                const noBuy = document.createElement("button");
+                noBuy.setAttribute("type", "button");
+                noBuy.setAttribute("class", "noBuyButton");
+                noBuy.setAttribute("onclick", "closeCancel()");
+                noBuy.append("Cancel");
+
+                popup.appendChild(movieTitle);
+                popup.appendChild(text);
+                popup.appendChild(buyForm);
+                popup.appendChild(submitButton);
+                popup.appendChild(noBuy);
+                container1.appendChild(popup);
+                
+                document.body.append(container1);
+        }
+
+        function validate() {
+                if (document.querySelector('input[id="nameInput"]').value.length == 0) {
+                        alert("Please input your name.");
+                        return false;
+                }
+
+                if (document.querySelector('input[id="emailInput"]').value.length == 0 ||
+                !(($('input[id="emailInput"]').val()).includes("@a") || 
+                ($('input[id="emailInput"]').val()).includes("."))) {
+                        alert("Please input a valid email address.");
+                        return false;
+                }
+
+                if (document.querySelector('input[id="ccNumberInput"]').value.length != 12 ||
+                isNaN(document.querySelector('input[id="ccNumberInput"]').value)) {
+                        alert("Please input a valid credit card number.");
+                        return false;
+                }
+
+                if (document.querySelector('input[id="expirationInput"]').value.length != 5 ||
+                !($('input[id="expirationInput"]').val()).includes("/")) {
+                        alert("Please input a valid expiration date in the format MM/YY.");
+                        return false;
+                }
+
+                if ((document.querySelector('input[id="securityInput"]').value.length != 3 &&
+                        document.querySelector('input[id="securityInput"]').value.length != 4) ||
+                        isNaN(document.querySelector('input[id="securityInput"]').value)) {
+                        alert("Please input a valid security code.");
+                        return false;
+                }
+
+                if (document.querySelector('input[id="billInput"]').value.length == 0) {
+                        alert("Please input your billing address.");
+                        return false;
+                }
+                
+                return true;
+        }
+                
+        function requestDataMovies() {
+                var request = new XMLHttpRequest();
+
+                var api_link = "https://api.themoviedb.org/3/movie/popular?api_key=d769a465cff5b60a61415cc4a7f30648&language=en-US&page=1";
+
+                if (!request) {
+                        alert("Unable to create HTTPRequest object");
+                        return;
+                }
+                
+                console.log(api_link);
+
+                request.open("GET", api_link, true);
+
+                request.onreadystatechange = function() {
+                        console.log("ready: " + this.readyState);
+                        console.log("status: " + this.status);
+                        if (this.readyState === 4 && this.status === 200) {
+                                var data = JSON.parse(this.responseText);
+                                var retrieved = data.results;
+                                var strHTML = "";
+                        
+                                for (var i = 0; i < 10; i++) {
+                                        var posterURL = "https://www.themoviedb.org/t/p/w440_and_h660_face" + retrieved[i].poster_path;
+                                        var movieTitle = retrieved[i].title;
+                                        var movieRating = retrieved[i].vote_average;
+
+
+                                        /* moviePoster = movie-poster */
+                                        strHTML += '<div class="movie-item">';
+                                        strHTML += '<div class="movie-poster">';
+                                        strHTML += '<img class="poster" src="' + posterURL + '" alt="' + movieTitle + 'Poster">';
+                                        strHTML += "<div class='overlay'><button type='button' class='buyNow' onclick=\"openPopup('" + movieTitle + "','" + retrieved[i].released + "')\">Rent Now</button></div>";
+                                        strHTML += '</div>';
+                                        strHTML += '<div class="movie-details">';
+                                        strHTML += '<h4 class="movie-title">' + (i + 1) + '. ' + movieTitle + '</h4>';
+                                        strHTML += '<p class="movie-rating">Rating: ' + movieRating + '</p>';
+                                        strHTML += '</div>';
+                                        strHTML += '</div>';
+                                }
+
+                                document.querySelector(".movie-container").innerHTML = strHTML;
+                                        
+                        } else if (this.readyState === 4 && this.status !== 200) {
+                                        document.getElementById("datamovies").innerHTML = "Unable to retrieve data";
+                                }
+                        }
+
+                        request.send();
+        }
+
+        function requestDataTV() {
+                var requesttv = new XMLHttpRequest();
+
+                var api_link = "https://api.themoviedb.org/3/tv/popular?api_key=d769a465cff5b60a61415cc4a7f30648&language=en-US&page=1";
+
+                if (!requesttv) {
+                        alert("Unable to create HTTPRequest object");
+                        return;
+                }
+                
+                console.log(api_link);
+
+                requesttv.open("GET", api_link, true);
+
+                requesttv.onreadystatechange = function() {
+                        console.log("ready: " + this.readyState);
+                        console.log("status: " + this.status);
+                        if (this.readyState === 4 && this.status === 200) {
+                                var data = JSON.parse(this.responseText);
+                                var retrieved = data.results;
+                                var strHTML = "";
+                        
+                                /* generates 10 titles */
+                                for (var i = 0; i < 10; i++) {
+                                        var posterURL = "https://www.themoviedb.org/t/p/w440_and_h660_face" + retrieved[i].poster_path;
+                                        var tvName = retrieved[i].name;
+                                        var tvRating = retrieved[i].vote_average;
+
+                                        strHTML += '<div class="movie-item">';
+                                        strHTML += '<div class="movie-poster">';
+                                        strHTML += '<img class="poster" src="' + posterURL + '" alt="' + tvName + 'Poster">';
+                                        strHTML += "<div class='overlay'><button type='button' class='buyNow' onclick=\"openPopup('" + tvName + "','" + retrieved[i].released + "')\">Rent Now</button></div>";
+                                        strHTML += '</div>';
+                                        strHTML += '<div class="movie-details">';
+                                        strHTML += '<h4 class="movie-title">' + (i + 1) + '. ' + tvName + '</h4>';
+                                        strHTML += '<p class="movie-rating">Rating: ' + tvRating + '</p>';
+                                        strHTML += '</div>';
+                                        strHTML += '</div>';
+                                }
+        
+                                document.querySelector(".tv-container").innerHTML = strHTML;
+                                
+                        } else if (this.readyState === 4 && this.status !== 200) {
+                                        document.getElementById("datatv").innerHTML = "Unable to retrieve data";
+                                }
+                        }
+
+                        requesttv.send();
+                }
+        
+                window.onload = function() {
+                        requestDataMovies();
+                        requestDataTV();
+                };
+        </script>
+        <br><br>
+
+        
+
+        <footer>
+                <br/>&copy;Screen Shuffle
+                <footer class="navigation-align-right"></footer>
+
+        </footer>
+
+</body>
+</html>

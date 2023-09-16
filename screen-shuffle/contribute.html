@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Contribute</title>
+        <link rel="stylesheet" href="final.css">
+        <script
+                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous">
+        </script>
+
+        <style>
+                h1 {
+                        color: white;
+                        font-size: 70px;
+                        text-align: center;
+                        margin-top: 1%;
+                        margin-bottom: 2%;
+                }
+
+                .contribute_above {
+                        background-color: #4683B7;
+                        margin-top: 0px;
+                        padding: 30px;
+                        margin-bottom: 20px;
+                }
+
+                .contribute {
+                        display: flex;
+                        position: absolute;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                }
+
+                .contribute img {
+                        width: 60%;
+                        border-radius: 8px;
+                        border-style: solid;
+                        border-color: white;
+                        border-width: 2px;
+                }
+
+                .content {
+                        width: 50%;
+                        text-align: justify;
+                        margin: 0 auto;
+                }
+        </style>
+</head>
+
+<body>
+        <nav>
+                
+                <a href="default.html" class="logo"> <img src="images/logo.png" alt="Logo" height="80px"></a>
+                <a href="default.html">Home</a>
+                <a href="movies.html">Movies</a>
+                <a href="tv_shows.html">TV Shows</a>
+                <a href="actors.php">Actors</a>
+                <a href="about.html">About Us</a>
+                <a class="active" href="contribute.html">Contribute</a>                
+                 
+        </nav>
+
+        <div class="contribute_above">
+                <h1>Contribute</h1>
+                <div class="contribute">
+                        <img src="images/contribute.jpg" alt="freepik.com">
+                </div>
+        </div>
+
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+
+        <div class="flexbox" style="margin-top: 20%;">
+                <div class="column" style="background-color: white">
+                        <form id="mailingForm">
+                                <h4>Join our mailing list for updates about latest movie releases!</h4>
+                                
+                                <input type="text" name="txtName" id="userName"
+                                placeholder="Name*">
+                                <br/>
+                                <input type="text" name="email" id="userEmail"
+                                placeholder="Email*">
+                                <br/>
+                                <input type="button" id="mailingBtn" value="Submit">
+                        </form>
+
+                        <script>
+                                valid = false;
+                                
+                                $(document).ready(function() {
+                                        $("#mailingBtn").click(function() {
+                                                let name = $("#userName").val();
+                                                let email = $("#userEmail").val();
+                                                
+                                                if (name == "" || name == null) {
+                                                        alert("Please enter your full name.");
+                                                } else if (email == "" || email == null || !email.includes("@")) {
+                                                        alert("Please enter a valid email.");
+                                                } else {
+                                                        valid = true;
+                                                }
+
+                                                if (valid) {
+                                                        alert("Thank you for your interest in Screen Shuffle!");
+                                                        document.getElementById("mailingForm").reset();
+                                                }
+                                        });
+
+                                });
+                        </script>
+
+                </div>
+
+                <div class="column" style="background-color: white">
+                        <form id="contributionForm">
+                                <h4>Add to our collection of <br/> movies, shows, and actors!</h4>
+                                
+                                <p>Please indicate what you are adding:<br/><br/>
+                                        <input type="radio"  name="choice" value = "movie" checked="checked"/>Movie  
+                                        <input type="radio"  name='choice' value = 'tv'/>TV Show
+                                        <input type="radio"  name='choice' value = 'actor'/>Actor/Actress
+                                </p>
+
+                                <br/><br/>
+
+                                <!-- all input fields for movies -->
+                                <input type="text" class="movie-info" id="movie-name"
+                                placeholder="Title*">
+
+                                <input type="text" class="movie-info" id="movie-genre"
+                                placeholder="Genre*">
+
+                                <input type="text" class="movie-info" id="movie-rating"
+                                placeholder="Rating (out of 10)*">
+
+                                <p style="text-align: left; margin: 5% auto 1% auto; font-size: 14px" class="movie-info">
+                                        Release date*<br/>
+                                </p>
+                                <input style="font-size: 14px; width: 100%; padding: 2% 2%; margin: 8px 0; box-sizing: border-box;" type="date" class="movie-info" id="movie-date">
+
+                                <input type="text" class="movie-info" id="movie-lang"
+                                placeholder="Language*">
+                                
+                                
+                                <!-- all input fields for TV shows -->
+                                <input type="text" class="tv-info" id="tv-name"
+                                placeholder="Title*">
+                                
+                                <input type="text" class="tv-info" id="tv-genre"
+                                placeholder="Genre*">
+                                
+                                <input type="text" class="tv-info" id="tv-rating"
+                                placeholder="Rating (out of 10)*">
+                                
+                                <p style="text-align: left; margin: 5% auto 1% auto; font-size: 14px" class="tv-info">
+                                        First air date*<br/>
+                                </p>
+                                <input style="font-size: 14px; width: 100%; padding: 2% 2%; margin: 8px 0; box-sizing: border-box;" type="date" type="date" class="tv-info" id="movie-date">
+
+                                
+                                <input type="text" class="tv-info" id="tv-lang"
+                                placeholder="Language*">
+                                
+
+                                <!-- all input fields for actors -->
+                                <input type="text" class="actor-info" id="actor-name"
+                                placeholder="Full name*">
+                                
+                                <p style="margin: 5% auto 1% auto; font-size: 14px" class="actor-info">
+                                        Please upload a picture*<br/>
+                                </p>
+                                <input style="margin-bottom: 3%; padding-left: 15%;" class="actor-info" type="file" id="actor-photo" name="photoId">
+
+                                <input type="text" class="actor-info" id="actor-known"
+                                placeholder="Most known films (minimum 3, separate by commas)*">
+                                
+                                <textarea type="text" class="actor-info" id="actor-bio"
+                                placeholder="Give a brief biography (optional)"
+                                style="margin-top: 2%; padding: 2% 2% 10% 2%; font-size: 14px; width: 100%; max-width: 100%;"></textarea>
+                                
+                                <input type="button" id="contributeBtn" value="Submit">
+                        </form>
+        
+                        <script>
+                                $(document).ready(function() {
+                                        var choice = "movie";
+                                        $(".tv-info").hide();
+                                        $(".actor-info").hide();
+                                        
+                                        /* shows or hides fields depending on if user 
+                                        selects "Movie", "TV Show," or "Actor/Actress" */
+                                        $("input[name='choice']").change(function() {
+                                                console.log("choice changed to " + this.value);
+                                                
+                                                if (this.value == "movie") {
+                                                        choice = "movie";
+                                                        $(".movie-info").show();
+                                                        $(".actor-info").hide();
+                                                        $(".tv-info").hide();
+                                                
+                                                } else if (this.value == "tv") {
+                                                        choice = "tv";
+                                                        $(".tv-info").show();
+                                                        $(".movie-info").hide();
+                                                        $(".actor-info").hide();
+                                                
+                                                } else {
+                                                        choice = "actor";
+                                                        $(".actor-info").show();
+                                                        $(".movie-info").hide();
+                                                        $(".tv-info").hide();
+                                                }
+                                        })
+                                
+                                        $("#contributeBtn").click(function() {
+                                                // have validate function return valid true/false
+                                                let valid = true;
+
+                                                if (choice == "movie") {
+                                                        valid = validate_movie();
+                                                        
+                                                } else if (choice == "tv") {
+                                                        valid = validate_tv();
+
+                                                } else if (choice == "actor") {
+                                                        valid = validate_actor();
+                                                }
+                                                
+                                                if (valid) {
+                                                        alert("Thank you for your contribution to Screen Shuffle!");
+                                                        document.getElementById("contributionForm").reset();
+                                                        $(".movie-info").show();
+                                                        $(".actor-info").hide();
+                                                        $(".tv-info").hide();
+                                                }
+                                        });
+                                });
+
+                                function validate_movie()
+                                {
+                                        let valid_movie = true;
+                                        
+                                        let movie_name = $("#movie-name").val();
+                                        let movie_genre = $("#movie-genre").val();
+                                        let movie_rating = $("#movie-rating").val();
+                                        let movie_date = $("#movie-date").val();
+                                        let movie_lang = $("#movie-lang").val();
+                                
+                                        if (movie_name == "" || movie_name == null) {
+                                                alert("Please enter the title of the movie.");
+                                                valid_movie = false;
+                                        } else {
+                                                if (movie_genre == "" || movie_genre == null) {
+                                                        alert("Please enter the genre of the movie.");
+                                                        valid_movie = false;
+                                                } else {
+                                                        if (movie_rating == "" || movie_rating == null || isNaN(movie_rating)) {
+                                                                alert("Please enter a numerical rating of the movie.");
+                                                                valid_movie = false;
+                                                        } else {
+                                                                if (movie_date == "" || movie_date == null) {
+                                                                        alert("Please enter the release date of the movie.");
+                                                                        valid_movie = false;
+                                                                } else {
+                                                                        if (movie_lang == "" || movie_lang == null) {
+                                                                                alert("Please enter the language of the movie.");
+                                                                                valid_movie = false;
+                                                                        }
+                                                                }
+                                                                
+                                                        }
+                                                }
+                                        }
+
+                                        return valid_movie;
+                                }
+
+                                function validate_tv()
+                                {
+                                        let valid_tv = true;
+                                        
+                                        let tv_name = $("#tv-name").val();
+                                        let tv_genre = $("#tv-genre").val();
+                                        let tv_rating = $("#tv-rating").val();
+                                        let tv_date = $("#tv-date").val();
+                                        let tv_lang = $("#tv-lang").val();
+                                
+                                        if (tv_name == "" || tv_name == null) {
+                                                alert("Please enter the title of the TV show.");
+                                                valid_tv = false;
+                                        } else {
+                                                if (tv_genre == "" || tv_genre == null) {
+                                                        alert("Please enter the genre of the TV show.");
+                                                        valid_tv = false;
+                                                } else {
+                                                        if (tv_rating == "" || tv_rating == null || isNan(tv_rating)) {
+                                                                alert("Please enter a numerical rating of the TV show.");
+                                                                valid_tv = false;
+                                                        } else {
+                                                                // make more thorough
+                                                                if (tv_date == "" || tv_date == null) {
+                                                                        alert("Please enter the release date of the TV show.");
+                                                                        valid_tv = false;
+                                                                } else {
+                                                                        if (tv_lang == "" || tv_lang == null) {
+                                                                                alert("Please enter the language of the TV show.");
+                                                                                valid_tv = false;
+                                                                        }
+                                                                }
+                                                                
+                                                        }
+                                                }
+                                        }
+
+                                        return valid_tv;
+                                }
+                               
+                                function validate_actor()
+                                {
+                                        let valid_actor = true;
+                                        
+                                        let actor_name = $("#actor-name").val();
+                                        let actor_photo = $("#actor-photo").val();
+                                        let actor_known = $("#actor-known").val();
+                                
+                                        if (actor_name == "" || actor_name == null) {
+                                                alert("Please enter the full name of the actor/actress.");
+                                                valid_actor = false;
+                                        } else {
+                                                if (actor_photo == "" || actor_photo == null) {
+                                                        alert("Please upload a picture of the actor/actress.");
+                                                        valid_actor = false;
+                                                } else {
+                                                        // check that there are 3 commas
+                                                        if (actor_known == "" || actor_known == null || (actor_known.split(",").length - 1) != 2) {
+                                                                alert("Please enter at least 3 films for the actor/actress.");
+                                                                valid_actor = false;
+                                                        }
+                                                }
+                                        }
+
+                                        return valid_actor;
+                                }
+                        </script>
+                </div>
+        
+        </div>
+
+        <br/>
+        
+        <div class="spacer"></div>
+
+        <footer>
+                <br />
+                &copy;Screen Shuffle
+                <footer class="navigation-align-right">
+                </footer>
+        </footer>
+        
+</body>
+</html>
